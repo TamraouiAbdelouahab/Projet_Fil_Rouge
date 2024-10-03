@@ -1,0 +1,39 @@
+@startuml
+left to right direction
+
+actor "Admin" as Admin
+actor "Client" as Client
+usecase "Login" as UC_Login
+
+rectangle "Système" {
+    Admin -- (CRUD voyage)-->UC_Login : <<include>>
+    Admin -- (CRUD membre)
+    Admin -- (CRUD version)
+    Admin -- (Affiche les utilisateurs)
+    Admin -- (Changer l'état de réservation)
+    Admin -- (Afficher profil)
+    Admin -- (Afficher les réservations)
+    
+    Client -- (Se connecter)
+    Client --> (Afficher les réservations) : Nécessite login
+}
+@enduml
+@startuml
+left to right direction
+
+actor "Admin" as Admin
+actor "Client" as Client
+
+rectangle "Système" {
+    Admin -- (CRUD voyage)
+    Admin -- (CRUD membre)
+    Admin -- (CRUD version)
+    Admin -- (Affiche les utilisateurs)
+    Admin -- (Changer l'état de réservation)
+    Admin -- (Afficher profil)
+    Admin -- (Afficher les réservations)
+    
+    Client -- (Se connecter)
+    Client --> (Afficher les réservations) : Nécessite login
+}
+@enduml
