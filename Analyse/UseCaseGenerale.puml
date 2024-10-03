@@ -1,0 +1,60 @@
+@startuml
+left to right direction 
+title Systeme 
+actor "Admin" as Admin
+actor "Membre" as member
+actor "Client" as Client
+
+usecase "Login" as Login
+usecase "Affiche les utilisateurs" as Displayclient
+usecase "Changer l'état de reservation" as changeEtat
+usecase "CRUD voyage" as CRUDvoyage
+usecase "CRUD membre" as CRUDmembre
+usecase "CRUD version" as CRUDversion
+usecase "afficher profile" as Displayprofile
+usecase "Afficher les Reservation" as Displayreservation
+
+
+usecase "Authentification" as Auth
+usecase "Faire un reservation" as Reservation
+usecase "Ajouter version à favorite" as AddFavorite
+usecase "Afficher les versions" as DisplayVersions
+
+Admin -- Displayclient
+Admin -- changeEtat
+Admin -- CRUDvoyage
+Admin -- CRUDmembre
+Admin -- CRUDversion
+Admin -- Displayprofile
+Admin -- Displayreservation
+
+
+member -- CRUDversion
+member -- Displayprofile
+member -- Displayreservation
+member -- changeEtat
+
+
+Displayclient --> Login : <<include>>
+changeEtat --> Login : <<include>>
+CRUDvoyage --> Login : <<include>>
+CRUDmembre -->  Login : <<include>>
+CRUDversion --> Login : <<include>>
+Displayprofile --> Login : <<include>>
+DisplayVersions --> Login : <<include>>
+Displayreservation --> Login : <<include>>
+
+
+
+
+Client -- Auth
+Client -- Reservation
+Client -- AddFavorite
+Client -- DisplayVersions
+
+Auth ---> Login : <<include>>
+Reservation ---> Login : <<include>>
+AddFavorite ---> Login : <<include>>
+
+
+@enduml

@@ -1,0 +1,36 @@
+@startuml
+left to right direction 
+actor "Admin" as Admin
+
+usecase "Login" as Login
+usecase "Affiche les utilisateurs" as Displayclient
+usecase "Changer l'état de reservation" as changeEtat
+usecase "CRUD voyage" as CRUDvoyage
+usecase "CRUD membre" as CRUDmembre
+usecase "CRUD version" as CRUDversion
+usecase "afficher profile" as Displayprofile
+usecase "Afficher les Reservation" as DisplayVersions
+
+Admin -- Displayclient
+Admin -- changeEtat
+Admin -- CRUDvoyage
+Admin -- CRUDmembre
+Admin -- CRUDversion
+Admin -- Displayprofile
+Admin -- DisplayVersions
+
+
+
+Displayclient --> Login : <<include>>
+changeEtat --> Login : <<include>>
+CRUDvoyage --> Login : <<include>>
+CRUDmembre -->  Login : <<include>>
+CRUDversion --> Login : <<include>>
+Displayprofile --> Login : <<include>>
+DisplayVersions --> Login : <<include>>
+
+
+
+
+
+@enduml

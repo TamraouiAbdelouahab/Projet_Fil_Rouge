@@ -1,0 +1,29 @@
+@startuml
+left to right direction 
+
+actor "membre" as Membre
+
+    usecase "Login" as Login
+    usecase "CRUD version" as CRUDversion
+    usecase "Affiche prfile" as Profile
+    usecase "Affiche les reservations " as DisplayReservation
+    usecase "change l'etat de reservation" as Etat
+
+
+Membre -- CRUDversion
+Membre -- Profile
+Membre -- DisplayReservation
+Membre -- Etat
+
+
+' Includes 
+CRUDversion ---> Login : <<include>>
+Profile ---> Login : <<include>>
+DisplayReservation ---> Login : <<include>>
+Etat ---> Login : <<include>>
+
+
+
+
+
+@enduml

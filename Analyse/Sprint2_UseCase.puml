@@ -1,0 +1,28 @@
+
+@startuml
+left to right direction 
+actor "Client" as Client
+
+    usecase "Login" as Login
+    usecase "Authentification" as Auth
+    usecase "Faire un reservation" as Reservation
+    usecase "Ajouter version à favorite" as AddFavorite
+    usecase "Afficher les versions" as DisplayVersions
+
+
+Client -- Auth
+Client -- Reservation
+Client -- AddFavorite
+Client -- DisplayVersions
+
+
+' Includes 
+Auth ---> Login : <<include>>
+Reservation ---> Login : <<include>>
+AddFavorite ---> Login : <<include>>
+
+
+
+
+
+@enduml

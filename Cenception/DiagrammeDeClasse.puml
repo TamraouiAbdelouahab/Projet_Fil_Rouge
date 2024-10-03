@@ -1,0 +1,21 @@
+@startuml
+class Admin {
+    +IdAdmin: String
+    +fname: String
+    +lname: String
+    +email: String
+    +password: String
+}
+class Trip {
+    +IdTrip: int
+    +Title: String
+    +Description: String
+    +destination: String
+    +departureDate: Date
+}
+
+
+
+Admin "1" -- "0..*" Trip : makes
+
+@enduml
